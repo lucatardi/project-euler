@@ -12,10 +12,20 @@ Algorithm
 
 Code
 
-function multiplesOf3and5(number) {
-  return [...Array(number).keys()]
-    .filter(num => num % 3 === 0 || num % 5 === 0)
-    .reduce((sum, num) => sum + num)
+function fiboEvenSum(n) {
+  let counter = 1; 
+  let preValue = 1;
+  let fiboList = [1];
+
+  while (counter <= n) {
+    const postValue = counter;
+    fiboList.push(counter);
+    counter += preValue;
+    preValue = postValue;
+  }
+  return fiboList
+    .filter(num => num % 2 === 0)
+    .reduce((acc, curr) => acc + curr);
 }
 
 Notes
